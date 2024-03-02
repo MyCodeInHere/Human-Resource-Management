@@ -1,0 +1,6 @@
+@HumanResourceManagement_HostAddress = http://localhost:5137
+
+GET {{HumanResourceManagement_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

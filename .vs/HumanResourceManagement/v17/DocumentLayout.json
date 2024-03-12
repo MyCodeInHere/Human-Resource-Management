@@ -1,12 +1,98 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\models\\phongban.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:models\\phongban.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\models\\chucvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:models\\chucvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\controllers\\phongbancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:controllers\\phongbancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\controllers\\chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:controllers\\chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedHeight": 445,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PhongBan.cs",
+              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\PhongBan.cs",
+              "RelativeDocumentMoniker": "Models\\PhongBan.cs",
+              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\PhongBan.cs",
+              "RelativeToolTip": "Models\\PhongBan.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T03:18:44.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PhongBanController.cs",
+              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Controllers\\PhongBanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PhongBanController.cs",
+              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Controllers\\PhongBanController.cs",
+              "RelativeToolTip": "Controllers\\PhongBanController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T03:18:39.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChucVuController.cs",
+              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Controllers\\ChucVuController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ChucVuController.cs",
+              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Controllers\\ChucVuController.cs",
+              "RelativeToolTip": "Controllers\\ChucVuController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEUAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T03:04:31.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChucVu.cs",
+              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\ChucVu.cs",
+              "RelativeDocumentMoniker": "Models\\ChucVu.cs",
+              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\ChucVu.cs",
+              "RelativeToolTip": "Models\\ChucVu.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T08:11:36.898Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 249,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

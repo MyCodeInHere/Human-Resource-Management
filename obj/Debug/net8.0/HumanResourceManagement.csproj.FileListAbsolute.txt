@@ -134,3 +134,4 @@ D:\Code\Code C#\Design Pattern\Web Human Resource Management\HumanResourceManage
 D:\Code\Code C#\Design Pattern\Web Human Resource Management\HumanResourceManagement\obj\Debug\net8.0\HumanResourceManagement.pdb
 D:\Code\Code C#\Design Pattern\Web Human Resource Management\HumanResourceManagement\obj\Debug\net8.0\HumanResourceManagement.genruntimeconfig.cache
 D:\Code\Code C#\Design Pattern\Web Human Resource Management\HumanResourceManagement\obj\Debug\net8.0\ref\HumanResourceManagement.dll
+D:\Code\Code C#\Design Pattern\Web Human Resource Management\HumanResourceManagement\obj\Debug\net8.0\HumanResourceManagement.sourcelink.json

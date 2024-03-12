@@ -19,7 +19,7 @@ namespace HumanResourceManagement.Models
         public string GhiChu { get; set; }
 
         // Liên kết bảng Lịch làm:
-        [MaxLength(10)]
+        [MaxLength(20)]
         public string LichLamId { get; set; }
         public LichLam LichLam { get; set; }
 

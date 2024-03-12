@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HumanResourceManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class Inital : Migration
+    public partial class inital : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,13 +15,13 @@ namespace HumanResourceManagement.Migrations
                 name: "LichLams",
                 columns: table => new
                 {
-                    MaLichLam = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MaLichLam = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     NgayLam = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GioBatDau = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GioKetThuc = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CaLamViec = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MoTaCongViec = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    GioBatDau = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    GioKetThuc = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    CaLamViec = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    MoTaCongViec = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,12 +32,12 @@ namespace HumanResourceManagement.Migrations
                 name: "PhongBans",
                 columns: table => new
                 {
-                    SoPhong = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TenPhong = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NguoiQuanLy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiaDiem = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    SoPhong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TenPhong = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    NguoiQuanLy = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    DiaDiem = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    MoTa = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,11 +48,11 @@ namespace HumanResourceManagement.Migrations
                 name: "PhuCaps",
                 columns: table => new
                 {
-                    MaPhuCap = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TenPhuCap = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaPhuCap = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TenPhuCap = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     SoTienPhuCap = table.Column<double>(type: "float", nullable: false),
-                    TanSuat = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TrangThai = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TanSuat = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TrangThai = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,10 +63,10 @@ namespace HumanResourceManagement.Migrations
                 name: "Thuongs",
                 columns: table => new
                 {
-                    MaKhoanThuong = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MaKhoanThuong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     NgayKhenThuong = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SoTienThuong = table.Column<double>(type: "float", nullable: false),
-                    LyDoKhenThuong = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    LyDoKhenThuong = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,11 +77,11 @@ namespace HumanResourceManagement.Migrations
                 name: "ChucVus",
                 columns: table => new
                 {
-                    MaChucVu = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TenChucVu = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaChucVu = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TenChucVu = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     MucLuong = table.Column<double>(type: "float", nullable: false),
-                    MoTaCongViec = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhongBanId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    MoTaCongViec = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    PhongBanId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,22 +98,22 @@ namespace HumanResourceManagement.Migrations
                 name: "NhanViens",
                 columns: table => new
                 {
-                    MaNhanVien = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    HoTen = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaNhanVien = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    HoTen = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     NgaySinh = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cccd = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TonGiao = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SoDienThoai = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GioiTinh = table.Column<string>(type: "nvarchar(6)", maxLength: 6, nullable: false),
+                    Cccd = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
+                    TonGiao = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    DiaChi = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    SoDienThoai = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     NgayVaoLam = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    NguoiQuanLy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NguoiQuanLy = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     MucLuong = table.Column<double>(type: "float", nullable: false),
                     AnhDaiDien = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    TrangThai = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhongBanId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ChucVuId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    TrangThai = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    PhongBanId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    ChucVuId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -134,17 +134,17 @@ namespace HumanResourceManagement.Migrations
                 name: "ChamCongs",
                 columns: table => new
                 {
-                    MaChamCong = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MaChamCong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     NgayChamCong = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GioVaoLam = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GioRaLam = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GioVaoLam = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    GioRaLam = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     SoGioLamViec = table.Column<double>(type: "float", nullable: false),
                     SoGioLamThem = table.Column<double>(type: "float", nullable: false),
                     SoGioNghiPhep = table.Column<double>(type: "float", nullable: false),
                     SoGioNghiKhongPhep = table.Column<double>(type: "float", nullable: false),
                     TongGioLam = table.Column<double>(type: "float", nullable: false),
-                    LichLamId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    LichLamId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -167,14 +167,14 @@ namespace HumanResourceManagement.Migrations
                 name: "HieuSuats",
                 columns: table => new
                 {
-                    MaHieuSuat = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    NguoiDanhGia = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KyDanhGia = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MucTieuHieuSuat = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DanhGiaHieuSuat = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhanHoi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KeHoachPhatTrien = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    MaHieuSuat = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    NguoiDanhGia = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    KyDanhGia = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    MucTieuHieuSuat = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    DanhGiaHieuSuat = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    PhanHoi = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    KeHoachPhatTrien = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -191,16 +191,16 @@ namespace HumanResourceManagement.Migrations
                 name: "HopDongs",
                 columns: table => new
                 {
-                    MaHopDong = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoaiHopDong = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaHopDong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    LoaiHopDong = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     NgayBatDau = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NgayKetThuc = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ThoiHanHopDong = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NoiDungHopDong = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TrangThaiHopDong = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ThoiHanHopDong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    NoiDungHopDong = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    TrangThaiHopDong = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     NgayKy = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    GhiChu = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -217,8 +217,8 @@ namespace HumanResourceManagement.Migrations
                 name: "LichLamNhanViens",
                 columns: table => new
                 {
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LichLamId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    LichLamId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -241,14 +241,14 @@ namespace HumanResourceManagement.Migrations
                 name: "Luongs",
                 columns: table => new
                 {
-                    MaLuong = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MaLuong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     LuongCoBan = table.Column<double>(type: "float", nullable: false),
                     TongTienPhuCap = table.Column<double>(type: "float", nullable: false),
                     TongTienThuong = table.Column<double>(type: "float", nullable: false),
                     TongTien = table.Column<double>(type: "float", nullable: false),
                     CacKhoanKhauTru = table.Column<double>(type: "float", nullable: false),
                     ThuNhapRong = table.Column<double>(type: "float", nullable: false),
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -265,16 +265,16 @@ namespace HumanResourceManagement.Migrations
                 name: "NghiVangs",
                 columns: table => new
                 {
-                    MaNghiVang = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoaiNghiVang = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaNghiVang = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    LoaiNghiVang = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     NgayBatDau = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NgayKetThuc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SoNgayNghi = table.Column<int>(type: "int", nullable: false),
-                    LyDo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TrangThai = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LichLamId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    LyDo = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    TrangThai = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    LichLamId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -297,8 +297,8 @@ namespace HumanResourceManagement.Migrations
                 name: "PhuCapNhanViens",
                 columns: table => new
                 {
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PhuCapId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    PhuCapId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -321,13 +321,13 @@ namespace HumanResourceManagement.Migrations
                 name: "Thues",
                 columns: table => new
                 {
-                    MaSoThue = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MaSoThue = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     SoNguoiPhuThuoc = table.Column<int>(type: "int", nullable: false),
-                    TrangThaiHonNhan = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TrangThaiHonNhan = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     MucThuNhapChiuThue = table.Column<double>(type: "float", nullable: false),
                     ThueSuat = table.Column<double>(type: "float", nullable: false),
                     ThueThuNhapCaNhanThucTe = table.Column<double>(type: "float", nullable: false),
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -344,8 +344,8 @@ namespace HumanResourceManagement.Migrations
                 name: "ThuongNhanViens",
                 columns: table => new
                 {
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ThuongId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    ThuongId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -368,13 +368,13 @@ namespace HumanResourceManagement.Migrations
                 name: "TrinhDoHocVans",
                 columns: table => new
                 {
-                    MaTrinhDo = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TenTrinhDoHocVan = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ChuyenNganh = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TenTruong = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaTrinhDo = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TenTrinhDoHocVan = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ChuyenNganh = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TenTruong = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     NameTotNghiep = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BangCap = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NhanVienId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    BangCap = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {

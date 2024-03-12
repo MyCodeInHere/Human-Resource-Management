@@ -1,0 +1,299 @@
+[
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.ChucVuController",
+    "Method": "GetChucVus",
+    "RelativePath": "api/ChucVu",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.ChucVuController",
+    "Method": "ThemChucVu",
+    "RelativePath": "api/ChucVu",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chucVu",
+        "Type": "HumanResourceManagement.Models.ChucVu",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.ChucVuController",
+    "Method": "CapNhatChucVu",
+    "RelativePath": "api/ChucVu/{maChucVu}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maChucVu",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "chucVu",
+        "Type": "HumanResourceManagement.Models.ChucVu",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.ChucVuController",
+    "Method": "XoaChucVu",
+    "RelativePath": "api/ChucVu/{maChucVu}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maChucVu",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.ChucVuController",
+    "Method": "GetChucVu",
+    "RelativePath": "api/ChucVu/{MaChucVu}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MaChucVu",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HumanResourceManagement.Models.ChucVu",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
+    "Method": "GetNhanViens",
+    "RelativePath": "api/NhanVien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HumanResourceManagement.Models.NhanVien, HumanResourceManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
+    "Method": "CreateNhanVien",
+    "RelativePath": "api/NhanVien",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nhanVien",
+        "Type": "HumanResourceManagement.Models.NhanVien",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HumanResourceManagement.Models.NhanVien",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
+    "Method": "GetNhanVien",
+    "RelativePath": "api/NhanVien/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HumanResourceManagement.Models.NhanVien",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
+    "Method": "UpdateNhanVien",
+    "RelativePath": "api/NhanVien/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nhanVien",
+        "Type": "HumanResourceManagement.Models.NhanVien",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HumanResourceManagement.Models.NhanVien",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
+    "Method": "DeleteNhanVien",
+    "RelativePath": "api/NhanVien/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.PhongBanController",
+    "Method": "GetPhongBans",
+    "RelativePath": "api/PhongBan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.PhongBanController",
+    "Method": "ThemPhongBan",
+    "RelativePath": "api/PhongBan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phongBan",
+        "Type": "HumanResourceManagement.Models.PhongBan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.PhongBanController",
+    "Method": "GetPhongBan",
+    "RelativePath": "api/PhongBan/{MaPhongBan}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maPhongBan",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HumanResourceManagement.Models.PhongBan",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.PhongBanController",
+    "Method": "CapNhatPhongBan",
+    "RelativePath": "api/PhongBan/{soPhong}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "soPhong",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "phongBan",
+        "Type": "HumanResourceManagement.Models.PhongBan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.PhongBanController",
+    "Method": "XoaPhongBan",
+    "RelativePath": "api/PhongBan/{soPhong}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "soPhong",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

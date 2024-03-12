@@ -4,13 +4,13 @@ namespace HumanResourceManagement.Models
 {
     public class ChucVu
     {
-        [Required]
+        [Required(ErrorMessage = "Mã chức vụ không được để trống!")]
         [MaxLength(20)]
         public string MaChucVu { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tên chức vụ không được để trống!")]
         [MaxLength(100)]
         public string TenChucVu { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Mức lương chức vụ không được để trống!")]
         [Range(0, double.MaxValue, ErrorMessage = "Mức lương phải là số lớn hơn 0!")]
         public double MucLuong {  get; set; }
         [MaxLength(1000)]

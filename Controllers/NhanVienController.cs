@@ -43,17 +43,12 @@ namespace HumanResourceManagement.Controllers
             _dbContext.NhanViens.Add(nhanVien);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetNhanVien), new { id = nhanVien.MaNhanVien }, nhanVien);
+            return Ok();
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult<NhanVien>> UpdateNhanVien(string id, NhanVien nhanVien)
         {
-            if (id != nhanVien.MaNhanVien)
-            {
-                return BadRequest();
-            }
-
             var existingNhanVien = await _dbContext.NhanViens.FindAsync(id);
 
             if (existingNhanVien == null)
@@ -79,7 +74,7 @@ namespace HumanResourceManagement.Controllers
                 }
             }
 
-            return Ok(nhanVien);
+            return Ok();
         }
 
         [HttpDelete("{id}")]

@@ -24,10 +24,10 @@ namespace HumanResourceManagement.Controllers
             return Ok(phongBans);
         }
 
-        [HttpGet("{MaPhongBan}")]
-        public async Task<ActionResult<PhongBan>> GetPhongBan(string maPhongBan)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PhongBan>> GetPhongBan(string id)
         {
-            var phongBan = await _dbContext.PhongBans.FindAsync(maPhongBan);
+            var phongBan = await _dbContext.PhongBans.FindAsync(id);
 
             if (phongBan == null)
             {
@@ -45,10 +45,10 @@ namespace HumanResourceManagement.Controllers
             return Ok();
         }
 
-        [HttpPut("{soPhong}")]
-        public async Task<IActionResult> CapNhatPhongBan(string soPhong, PhongBan phongBan)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> CapNhatPhongBan(string id, PhongBan phongBan)
         {
-            var existingPhongBan = await _dbContext.PhongBans.FirstOrDefaultAsync(pb => pb.SoPhong == soPhong);
+            var existingPhongBan = await _dbContext.PhongBans.FirstOrDefaultAsync(pb => pb.SoPhong == id);
             if (existingPhongBan == null)
             {
                 return NotFound();
@@ -64,10 +64,10 @@ namespace HumanResourceManagement.Controllers
             return Ok();
         }
 
-        [HttpDelete("{soPhong}")]
-        public async Task<IActionResult> XoaPhongBan(string soPhong)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> XoaPhongBan(string id)
         {
-            var phongBan = await _dbContext.PhongBans.FirstOrDefaultAsync(pb => pb.SoPhong == soPhong);
+            var phongBan = await _dbContext.PhongBans.FirstOrDefaultAsync(pb => pb.SoPhong == id);
             if (phongBan == null)
             {
                 return NotFound();

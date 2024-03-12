@@ -24,10 +24,10 @@ namespace HumanResourceManagement.Controllers
             return Ok(chucVus);
         }
 
-        [HttpGet("{MaChucVu}")]
-        public async Task<ActionResult<ChucVu>> GetChucVu(string MaChucVu)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ChucVu>> GetChucVu(string id)
         {
-            var chucVu = await _dbContext.ChucVus.FindAsync(MaChucVu);
+            var chucVu = await _dbContext.ChucVus.FindAsync(id);
 
             if (chucVu == null)
             {
@@ -46,10 +46,10 @@ namespace HumanResourceManagement.Controllers
             return Ok();
         }
 
-        [HttpPut("{maChucVu}")]
-        public async Task<IActionResult> CapNhatChucVu(string maChucVu, ChucVu chucVu)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> CapNhatChucVu(string id, ChucVu chucVu)
         {
-            var existingChucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == maChucVu);
+            var existingChucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == id);
 
             if (existingChucVu == null)
             {
@@ -66,10 +66,10 @@ namespace HumanResourceManagement.Controllers
             return Ok();
         }
 
-        [HttpDelete("{maChucVu}")]
-        public async Task<IActionResult> XoaChucVu(string maChucVu)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> XoaChucVu(string id)
         {
-            var existingChucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == maChucVu);
+            var existingChucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == id);
 
             if (existingChucVu == null)
             {

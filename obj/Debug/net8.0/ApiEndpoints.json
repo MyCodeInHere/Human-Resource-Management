@@ -18,8 +18,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "chucVu",
-        "Type": "HumanResourceManagement.Models.ChucVu",
+        "Name": "chucVuDto",
+        "Type": "HumanResourceManagement.DTOs.ChucVuDTO",
         "IsRequired": true
       }
     ],
@@ -65,8 +65,8 @@
         "IsRequired": true
       },
       {
-        "Name": "chucVu",
-        "Type": "HumanResourceManagement.Models.ChucVu",
+        "Name": "chucVuDto",
+        "Type": "HumanResourceManagement.DTOs.ChucVuDTO",
         "IsRequired": true
       }
     ],
@@ -96,43 +96,23 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[HumanResourceManagement.Models.NhanVien, HumanResourceManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
-    "Method": "CreateNhanVien",
+    "Method": "ThemNhanVien",
     "RelativePath": "api/NhanVien",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "nhanVien",
-        "Type": "HumanResourceManagement.Models.NhanVien",
+        "Name": "nhanVienDto",
+        "Type": "HumanResourceManagement.DTOs.NhanVienDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "HumanResourceManagement.Models.NhanVien",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
@@ -162,7 +142,7 @@
   },
   {
     "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
-    "Method": "UpdateNhanVien",
+    "Method": "CapNhatNhanVien",
     "RelativePath": "api/NhanVien/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -174,26 +154,16 @@
         "IsRequired": true
       },
       {
-        "Name": "nhanVien",
-        "Type": "HumanResourceManagement.Models.NhanVien",
+        "Name": "nhanVienDto",
+        "Type": "HumanResourceManagement.DTOs.NhanVienDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "HumanResourceManagement.Models.NhanVien",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
-    "Method": "DeleteNhanVien",
+    "Method": "XoaNhanVien",
     "RelativePath": "api/NhanVien/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -226,8 +196,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "phongBan",
-        "Type": "HumanResourceManagement.Models.PhongBan",
+        "Name": "phongBanDto",
+        "Type": "HumanResourceManagement.DTOs.PhongBanDTO",
         "IsRequired": true
       }
     ],
@@ -273,8 +243,8 @@
         "IsRequired": true
       },
       {
-        "Name": "phongBan",
-        "Type": "HumanResourceManagement.Models.PhongBan",
+        "Name": "phongBanDto",
+        "Type": "HumanResourceManagement.DTOs.PhongBanDTO",
         "IsRequired": true
       }
     ],

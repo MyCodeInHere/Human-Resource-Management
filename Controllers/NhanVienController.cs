@@ -1,6 +1,8 @@
 ﻿using HumanResourceManagement.Models;
+using HumanResourceManagement.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,13 +17,14 @@ namespace HumanResourceManagement.Controllers
 
         public NhanVienController(HumanResourceManagementDbContext dbContext)
         {
-            this._dbContext = dbContext;
+            _dbContext = dbContext;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<NhanVien>>> GetNhanViens()
+        public async Task<IActionResult> GetNhanViens()
         {
-            return await _dbContext.NhanViens.ToListAsync();
+            var nhanViens = await _dbContext.NhanViens.ToListAsync();
+            return Ok(nhanViens);
         }
 
         [HttpGet("{id}")]
@@ -38,49 +41,103 @@ namespace HumanResourceManagement.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<NhanVien>> CreateNhanVien(NhanVien nhanVien)
+        public async Task<IActionResult> ThemNhanVien(NhanVienDTO nhanVienDto)
         {
-            _dbContext.NhanViens.Add(nhanVien);
-            await _dbContext.SaveChangesAsync();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var nhanVien = new NhanVien
+            {
+                MaNhanVien = nhanVienDto.MaNhanVien,
+                HoTen = nhanVienDto.HoTen,
+                NgaySinh = nhanVienDto.NgaySinh,
+                GioiTinh = nhanVienDto.GioiTinh,
+                Cccd = nhanVienDto.Cccd,
+                TonGiao = nhanVienDto.TonGiao,
+                DiaChi = nhanVienDto.DiaChi,
+                SoDienThoai = nhanVienDto.SoDienThoai,
+                Email = nhanVienDto.Email,
+                NgayVaoLam = nhanVienDto.NgayVaoLam,
+                NguoiQuanLy = nhanVienDto.NguoiQuanLy,
+                MucLuong = nhanVienDto.MucLuong,
+                AnhDaiDien = nhanVienDto.AnhDaiDien,
+                TrangThai = nhanVienDto.TrangThai
+            };
+
+            if (!string.IsNullOrEmpty(nhanVienDto.PhongBanId))
+            {
+                nhanVien.PhongBanId = nhanVienDto.PhongBanId;
+            }
+
+            if (!string.IsNullOrEmpty(nhanVienDto.ChucVuId))
+            {
+                nhanVien.ChucVuId = nhanVienDto.ChucVuId;
+            }
+
+            await _dbContext.NhanViens.AddAsync(nhanVien);
+            await _dbContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<NhanVien>> UpdateNhanVien(string id, NhanVien nhanVien)
+        public async Task<IActionResult> CapNhatNhanVien(string id, NhanVienDTO nhanVienDto)
         {
-            var existingNhanVien = await _dbContext.NhanViens.FindAsync(id);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var existingNhanVien = await _dbContext.NhanViens.FirstOrDefaultAsync(nv => nv.MaNhanVien == id);
 
             if (existingNhanVien == null)
             {
                 return NotFound();
             }
 
-            _dbContext.Entry(existingNhanVien).CurrentValues.SetValues(nhanVien);
+            existingNhanVien.MaNhanVien = nhanVienDto.MaNhanVien;
+            existingNhanVien.HoTen = nhanVienDto.HoTen;
+            existingNhanVien.NgaySinh = nhanVienDto.NgaySinh;
+            existingNhanVien.GioiTinh = nhanVienDto.GioiTinh;
+            existingNhanVien.Cccd = nhanVienDto.Cccd;
+            existingNhanVien.TonGiao = nhanVienDto.TonGiao;
+            existingNhanVien.DiaChi = nhanVienDto.DiaChi;
+            existingNhanVien.SoDienThoai = nhanVienDto.SoDienThoai;
+            existingNhanVien.Email = nhanVienDto.Email;
+            existingNhanVien.NgayVaoLam = nhanVienDto.NgayVaoLam;
+            existingNhanVien.NguoiQuanLy = nhanVienDto.NguoiQuanLy;
+            existingNhanVien.MucLuong = nhanVienDto.MucLuong;
+            existingNhanVien.AnhDaiDien = nhanVienDto.AnhDaiDien;
+            existingNhanVien.TrangThai = nhanVienDto.TrangThai;
 
-            try
+            if (!string.IsNullOrEmpty(nhanVienDto.PhongBanId))
             {
-                await _dbContext.SaveChangesAsync();
+                existingNhanVien.PhongBanId = nhanVienDto.PhongBanId;
             }
-            catch (DbUpdateConcurrencyException)
+            else
             {
-                if (!NhanVienExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                existingNhanVien.PhongBanId = null;
             }
 
+            if (!string.IsNullOrEmpty(nhanVienDto.ChucVuId))
+            {
+                existingNhanVien.ChucVuId = nhanVienDto.ChucVuId;
+            }
+            else
+            {
+                existingNhanVien.ChucVuId = null;
+            }
+
+            await _dbContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteNhanVien(string id)
+        public async Task<IActionResult> XoaNhanVien(string id)
         {
             var nhanVien = await _dbContext.NhanViens.FindAsync(id);
+
             if (nhanVien == null)
             {
                 return NotFound();
@@ -88,13 +145,7 @@ namespace HumanResourceManagement.Controllers
 
             _dbContext.NhanViens.Remove(nhanVien);
             await _dbContext.SaveChangesAsync();
-
             return Ok();
-        }
-
-        private bool NhanVienExists(string id)
-        {
-            return _dbContext.NhanViens.Any(nv => nv.MaNhanVien == id);
         }
     }
 }

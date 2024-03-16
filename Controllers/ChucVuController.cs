@@ -1,4 +1,5 @@
 ﻿using HumanResourceManagement.Models;
+using HumanResourceManagement.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace HumanResourceManagement.Controllers
     {
         private readonly HumanResourceManagementDbContext _dbContext;
 
-        public ChucVuController(HumanResourceManagementDbContext context)
+        public ChucVuController(HumanResourceManagementDbContext dbContext)
         {
-            _dbContext = context;
+            _dbContext = dbContext;
         }
 
         [HttpGet]
@@ -38,47 +39,66 @@ namespace HumanResourceManagement.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ThemChucVu(ChucVu chucVu)
+        public async Task<IActionResult> ThemChucVu(ChucVuDTO chucVuDto)
         {
-            _dbContext.ChucVus.Add(chucVu);
-            await _dbContext.SaveChangesAsync();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var chucVu = new ChucVu
+            {
+                MaChucVu = chucVuDto.MaChucVu,
+                TenChucVu = chucVuDto.TenChucVu,
+                MucLuong = chucVuDto.MucLuong,
+                MoTaCongViec = chucVuDto.MoTaCongViec
+            };
+
+            if (!string.IsNullOrEmpty(chucVuDto.PhongBanId))
+            {
+                chucVu.PhongBanId = chucVuDto.PhongBanId;
+            }
+
+            await _dbContext.ChucVus.AddAsync(chucVu);
+            await _dbContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> CapNhatChucVu(string id, ChucVu chucVu)
+        public async Task<IActionResult> CapNhatChucVu(string id, ChucVuDTO chucVuDto)
         {
-            var existingChucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == id);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var existingChucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == id);
             if (existingChucVu == null)
             {
                 return NotFound();
             }
 
-            existingChucVu.TenChucVu = chucVu.TenChucVu;
-            existingChucVu.MoTaCongViec = chucVu.MoTaCongViec;
-            existingChucVu.MucLuong = chucVu.MucLuong;
-            existingChucVu.PhongBan = chucVu.PhongBan;
+            existingChucVu.MaChucVu = chucVuDto.MaChucVu;
+            existingChucVu.TenChucVu = chucVuDto.TenChucVu;
+            existingChucVu.MucLuong = chucVuDto.MucLuong;
+            existingChucVu.MoTaCongViec = chucVuDto.MoTaCongViec;
+            existingChucVu.PhongBanId = chucVuDto.PhongBanId;
 
             await _dbContext.SaveChangesAsync();
-
             return Ok();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> XoaChucVu(string id)
         {
-            var existingChucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == id);
-
-            if (existingChucVu == null)
+            var chucVu = await _dbContext.ChucVus.FirstOrDefaultAsync(cv => cv.MaChucVu == id);
+            if (chucVu == null)
             {
                 return NotFound();
             }
 
-            _dbContext.ChucVus.Remove(existingChucVu);
+            _dbContext.ChucVus.Remove(chucVu);
             await _dbContext.SaveChangesAsync();
-
             return Ok();
         }
     }

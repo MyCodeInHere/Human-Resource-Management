@@ -1,4 +1,5 @@
 ﻿using HumanResourceManagement.Models;
+using HumanResourceManagement.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -38,27 +39,48 @@ namespace HumanResourceManagement.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ThemPhongBan(PhongBan phongBan)
+        public async Task<IActionResult> ThemPhongBan(PhongBanDTO phongBanDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var phongBan = new PhongBan
+            {
+                SoPhong = phongBanDto.SoPhong,
+                TenPhong = phongBanDto.TenPhong,
+                NguoiQuanLy = phongBanDto.NguoiQuanLy,
+                Email = phongBanDto.Email,
+                DiaDiem = phongBanDto.DiaDiem,
+                MoTa = phongBanDto.MoTa
+            };
+
             await _dbContext.PhongBans.AddAsync(phongBan);
             await _dbContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> CapNhatPhongBan(string id, PhongBan phongBan)
+        public async Task<IActionResult> CapNhatPhongBan(string id, PhongBanDTO phongBanDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var existingPhongBan = await _dbContext.PhongBans.FirstOrDefaultAsync(pb => pb.SoPhong == id);
             if (existingPhongBan == null)
             {
                 return NotFound();
             }
 
-            existingPhongBan.TenPhong = phongBan.TenPhong;
-            existingPhongBan.NguoiQuanLy = phongBan.NguoiQuanLy;
-            existingPhongBan.Email = phongBan.Email;
-            existingPhongBan.DiaDiem = phongBan.DiaDiem;
-            existingPhongBan.MoTa = phongBan.MoTa;
+            existingPhongBan.SoPhong = phongBanDto.SoPhong;
+            existingPhongBan.TenPhong = phongBanDto.TenPhong;
+            existingPhongBan.NguoiQuanLy = phongBanDto.NguoiQuanLy;
+            existingPhongBan.Email = phongBanDto.Email;
+            existingPhongBan.DiaDiem = phongBanDto.DiaDiem;
+            existingPhongBan.MoTa = phongBanDto.MoTa;
 
             await _dbContext.SaveChangesAsync();
             return Ok();

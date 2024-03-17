@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HumanResourceManagement.Pattern.SearchEmployeeStrategy;
 
 namespace HumanResourceManagement.Controllers
 {
@@ -14,10 +15,12 @@ namespace HumanResourceManagement.Controllers
     public class NhanVienController : ControllerBase
     {
         private readonly HumanResourceManagementDbContext _dbContext;
+        private readonly SearchEmployeeStrategyFactory _strategyFactory;
 
-        public NhanVienController(HumanResourceManagementDbContext dbContext)
+        public NhanVienController(HumanResourceManagementDbContext dbContext, SearchEmployeeStrategyFactory strategyFactory)
         {
             _dbContext = dbContext;
+            _strategyFactory = strategyFactory;
         }
 
         [HttpGet]
@@ -28,16 +31,45 @@ namespace HumanResourceManagement.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<NhanVien>> GetNhanVien(string id)
+        public async Task<ActionResult<NhanVien>> GetNhanVienById(string id)
         {
-            var nhanVien = await _dbContext.NhanViens.FindAsync(id);
+            var searchStrategy = _strategyFactory.CreateStrategy("id");
+            var nhanViens = await searchStrategy.SearchAsync(id);
 
-            if (nhanVien == null)
+            if (nhanViens.Count == 0)
             {
                 return NotFound();
             }
 
-            return nhanVien;
+            return nhanViens[0];
+        }
+
+        [HttpGet("get-by-name")]
+        public async Task<ActionResult<List<NhanVien>>> GetNhanVienByName(string name)
+        {
+            var searchStrategy = _strategyFactory.CreateStrategy("name");
+            var nhanViens = await searchStrategy.SearchAsync(name);
+
+            if (nhanViens.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return nhanViens;
+        }
+
+        [HttpGet("get-by-phone")]
+        public async Task<ActionResult<List<NhanVien>>> GetNhanVienByPhone(string phoneNumber)
+        {
+            var searchStrategy = _strategyFactory.CreateStrategy("phone");
+            var nhanViens = await searchStrategy.SearchAsync(phoneNumber);
+
+            if (nhanViens.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return nhanViens;
         }
 
         [HttpPost]
@@ -47,7 +79,7 @@ namespace HumanResourceManagement.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+                
             var nhanVien = new NhanVien
             {
                 MaNhanVien = nhanVienDto.MaNhanVien,
@@ -62,7 +94,6 @@ namespace HumanResourceManagement.Controllers
                 NgayVaoLam = nhanVienDto.NgayVaoLam,
                 NguoiQuanLy = nhanVienDto.NguoiQuanLy,
                 MucLuong = nhanVienDto.MucLuong,
-                AnhDaiDien = nhanVienDto.AnhDaiDien,
                 TrangThai = nhanVienDto.TrangThai
             };
 
@@ -108,7 +139,6 @@ namespace HumanResourceManagement.Controllers
             existingNhanVien.NgayVaoLam = nhanVienDto.NgayVaoLam;
             existingNhanVien.NguoiQuanLy = nhanVienDto.NguoiQuanLy;
             existingNhanVien.MucLuong = nhanVienDto.MucLuong;
-            existingNhanVien.AnhDaiDien = nhanVienDto.AnhDaiDien;
             existingNhanVien.TrangThai = nhanVienDto.TrangThai;
 
             if (!string.IsNullOrEmpty(nhanVienDto.PhongBanId))

@@ -116,7 +116,7 @@
   },
   {
     "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
-    "Method": "GetNhanVien",
+    "Method": "GetNhanVienById",
     "RelativePath": "api/NhanVien/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -176,6 +176,58 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
+    "Method": "GetNhanVienByName",
+    "RelativePath": "api/NhanVien/get-by-name",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[HumanResourceManagement.Models.NhanVien, HumanResourceManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.NhanVienController",
+    "Method": "GetNhanVienByPhone",
+    "RelativePath": "api/NhanVien/get-by-phone",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[HumanResourceManagement.Models.NhanVien, HumanResourceManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "HumanResourceManagement.Controllers.PhongBanController",
@@ -254,6 +306,95 @@
     "ContainingType": "HumanResourceManagement.Controllers.PhongBanController",
     "Method": "XoaPhongBan",
     "RelativePath": "api/PhongBan/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.TrinhDoHocVanController",
+    "Method": "GetTrinhDoHocVan",
+    "RelativePath": "api/TrinhDoHocVan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.TrinhDoHocVanController",
+    "Method": "ThemTrinhDoHocVan",
+    "RelativePath": "api/TrinhDoHocVan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trinhDoHocVanDTO",
+        "Type": "HumanResourceManagement.DTOs.TrinhDoHocVanDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.TrinhDoHocVanController",
+    "Method": "GetTrinhDoHocVan",
+    "RelativePath": "api/TrinhDoHocVan/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HumanResourceManagement.Models.TrinhDoHocVan",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.TrinhDoHocVanController",
+    "Method": "CapNhatTrinhDoHocVan",
+    "RelativePath": "api/TrinhDoHocVan/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "trinhDoHocVanDTO",
+        "Type": "HumanResourceManagement.DTOs.TrinhDoHocVanDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HumanResourceManagement.Controllers.TrinhDoHocVanController",
+    "Method": "XoaTrinhDoHocVan",
+    "RelativePath": "api/TrinhDoHocVan/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

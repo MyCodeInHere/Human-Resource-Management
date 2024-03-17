@@ -35,9 +35,8 @@ namespace HumanResourceManagement.Models
         [MaxLength(150)]
         public string NguoiQuanLy { get; set; }
         [Required(ErrorMessage = "Mức lương cơ bản của nhân viên không được để trống!")]
-        [Range(0, double.MinValue, ErrorMessage = "Lương cơ bản của nhân viên phải là số lớn hơn 0!")]
+        [Range(0, double.MaxValue, ErrorMessage = "Lương cơ bản của nhân viên phải là số lớn hơn 0!")]
         public double MucLuong { get; set; }
-        public byte[] AnhDaiDien { get; set; }
         [Required(ErrorMessage = "Trạng thái làm của nhân viên không được để trống!")]
         [MaxLength(20)]
         public string TrangThai { get; set; }

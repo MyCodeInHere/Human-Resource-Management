@@ -110,7 +110,6 @@ namespace HumanResourceManagement.Migrations
                     NgayVaoLam = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NguoiQuanLy = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     MucLuong = table.Column<double>(type: "float", nullable: false),
-                    AnhDaiDien = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     TrangThai = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     PhongBanId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     ChucVuId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)

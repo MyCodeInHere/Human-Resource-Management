@@ -56,6 +56,9 @@ namespace HumanResourceManagement.Models
 
         // Liên kết bảng Lương:
         public ICollection<Luong> Luongs { get; set; }
+        
+        // Liên kết bảng trả lương:
+        public ICollection<TraLuong> TraLuongs { get; set; }
 
         // Liên kết bảng Phụ cấp:
         public ICollection<PhuCapNhanVien> PhuCapNhanViens { get; set; }

@@ -6,11 +6,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HumanResourceManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class initDb : Migration
+    public partial class InitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "DotTraLuongs",
+                columns: table => new
+                {
+                    MaDotTraLuong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TenDotTraLuong = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ThoiGianTraLuong = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TongNhanVienCanPhaiTra = table.Column<int>(type: "int", nullable: false),
+                    TongTienCanPhaiTra = table.Column<double>(type: "float", nullable: false),
+                    NguoiTraLuong = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DotTraLuongs", x => x.MaDotTraLuong);
+                });
+
             migrationBuilder.CreateTable(
                 name: "LichLams",
                 columns: table => new
@@ -272,18 +289,11 @@ namespace HumanResourceManagement.Migrations
                     LyDo = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     TrangThai = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     GhiChu = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    LichLamId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_NghiVangs", x => x.MaNghiVang);
-                    table.ForeignKey(
-                        name: "FK_NghiVangs_LichLams_LichLamId",
-                        column: x => x.LichLamId,
-                        principalTable: "LichLams",
-                        principalColumn: "MaLichLam",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_NghiVangs_NhanViens_NhanVienId",
                         column: x => x.NhanVienId,
@@ -364,6 +374,37 @@ namespace HumanResourceManagement.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TraLuongs",
+                columns: table => new
+                {
+                    MaTraLuong = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TrangThai = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    SoTienCanPhaiTra = table.Column<double>(type: "float", nullable: false),
+                    SoTienDaTra = table.Column<double>(type: "float", nullable: false),
+                    SoTienConPhaiTra = table.Column<double>(type: "float", nullable: false),
+                    NgayTraLuong = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    NhanVienId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    DotTraLuongId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TraLuongs", x => x.MaTraLuong);
+                    table.ForeignKey(
+                        name: "FK_TraLuongs_DotTraLuongs_DotTraLuongId",
+                        column: x => x.DotTraLuongId,
+                        principalTable: "DotTraLuongs",
+                        principalColumn: "MaDotTraLuong",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TraLuongs_NhanViens_NhanVienId",
+                        column: x => x.NhanVienId,
+                        principalTable: "NhanViens",
+                        principalColumn: "MaNhanVien",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TrinhDoHocVans",
                 columns: table => new
                 {
@@ -422,11 +463,6 @@ namespace HumanResourceManagement.Migrations
                 column: "NhanVienId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_NghiVangs_LichLamId",
-                table: "NghiVangs",
-                column: "LichLamId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_NghiVangs_NhanVienId",
                 table: "NghiVangs",
                 column: "NhanVienId");
@@ -455,6 +491,16 @@ namespace HumanResourceManagement.Migrations
                 name: "IX_ThuongNhanViens_ThuongId",
                 table: "ThuongNhanViens",
                 column: "ThuongId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TraLuongs_DotTraLuongId",
+                table: "TraLuongs",
+                column: "DotTraLuongId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TraLuongs_NhanVienId",
+                table: "TraLuongs",
+                column: "NhanVienId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TrinhDoHocVans_NhanVienId",
@@ -493,6 +539,9 @@ namespace HumanResourceManagement.Migrations
                 name: "ThuongNhanViens");
 
             migrationBuilder.DropTable(
+                name: "TraLuongs");
+
+            migrationBuilder.DropTable(
                 name: "TrinhDoHocVans");
 
             migrationBuilder.DropTable(
@@ -503,6 +552,9 @@ namespace HumanResourceManagement.Migrations
 
             migrationBuilder.DropTable(
                 name: "Thuongs");
+
+            migrationBuilder.DropTable(
+                name: "DotTraLuongs");
 
             migrationBuilder.DropTable(
                 name: "NhanViens");

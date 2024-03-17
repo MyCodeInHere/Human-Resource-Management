@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HumanResourceManagement.Migrations
 {
     [DbContext(typeof(HumanResourceManagementDbContext))]
-    [Migration("20240317024811_initDb")]
-    partial class initDb
+    [Migration("20240317084314_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,6 +107,41 @@ namespace HumanResourceManagement.Migrations
                     b.HasIndex("PhongBanId");
 
                     b.ToTable("ChucVus");
+                });
+
+            modelBuilder.Entity("HumanResourceManagement.Models.DotTraLuong", b =>
+                {
+                    b.Property<string>("MaDotTraLuong")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("GhiChu")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("NguoiTraLuong")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("TenDotTraLuong")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("ThoiGianTraLuong")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TongNhanVienCanPhaiTra")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TongTienCanPhaiTra")
+                        .HasColumnType("float");
+
+                    b.HasKey("MaDotTraLuong");
+
+                    b.ToTable("DotTraLuongs");
                 });
 
             modelBuilder.Entity("HumanResourceManagement.Models.HieuSuat", b =>
@@ -312,11 +347,6 @@ namespace HumanResourceManagement.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
-                    b.Property<string>("LichLamId")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<string>("LoaiNghiVang")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -347,8 +377,6 @@ namespace HumanResourceManagement.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MaNghiVang");
-
-                    b.HasIndex("LichLamId");
 
                     b.HasIndex("NhanVienId");
 
@@ -590,6 +618,53 @@ namespace HumanResourceManagement.Migrations
                     b.ToTable("ThuongNhanViens");
                 });
 
+            modelBuilder.Entity("HumanResourceManagement.Models.TraLuong", b =>
+                {
+                    b.Property<string>("MaTraLuong")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("DotTraLuongId")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("GhiChu")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime>("NgayTraLuong")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NhanVienId")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<double>("SoTienCanPhaiTra")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SoTienConPhaiTra")
+                        .HasColumnType("float");
+
+                    b.Property<double>("SoTienDaTra")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TrangThai")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("MaTraLuong");
+
+                    b.HasIndex("DotTraLuongId");
+
+                    b.HasIndex("NhanVienId");
+
+                    b.ToTable("TraLuongs");
+                });
+
             modelBuilder.Entity("HumanResourceManagement.Models.TrinhDoHocVan", b =>
                 {
                     b.Property<string>("MaTrinhDo")
@@ -715,19 +790,11 @@ namespace HumanResourceManagement.Migrations
 
             modelBuilder.Entity("HumanResourceManagement.Models.NghiVang", b =>
                 {
-                    b.HasOne("HumanResourceManagement.Models.LichLam", "LichLam")
-                        .WithMany("NghiVangs")
-                        .HasForeignKey("LichLamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("HumanResourceManagement.Models.NhanVien", "NhanVien")
                         .WithMany("NghiVangs")
                         .HasForeignKey("NhanVienId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("LichLam");
 
                     b.Navigation("NhanVien");
                 });
@@ -800,6 +867,25 @@ namespace HumanResourceManagement.Migrations
                     b.Navigation("Thuong");
                 });
 
+            modelBuilder.Entity("HumanResourceManagement.Models.TraLuong", b =>
+                {
+                    b.HasOne("HumanResourceManagement.Models.DotTraLuong", "DotTraLuong")
+                        .WithMany("TraLuongs")
+                        .HasForeignKey("DotTraLuongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HumanResourceManagement.Models.NhanVien", "NhanVien")
+                        .WithMany("TraLuongs")
+                        .HasForeignKey("NhanVienId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DotTraLuong");
+
+                    b.Navigation("NhanVien");
+                });
+
             modelBuilder.Entity("HumanResourceManagement.Models.TrinhDoHocVan", b =>
                 {
                     b.HasOne("HumanResourceManagement.Models.NhanVien", "NhanVien")
@@ -816,13 +902,16 @@ namespace HumanResourceManagement.Migrations
                     b.Navigation("NhanViens");
                 });
 
+            modelBuilder.Entity("HumanResourceManagement.Models.DotTraLuong", b =>
+                {
+                    b.Navigation("TraLuongs");
+                });
+
             modelBuilder.Entity("HumanResourceManagement.Models.LichLam", b =>
                 {
                     b.Navigation("ChamCongs");
 
                     b.Navigation("LichLamNhanViens");
-
-                    b.Navigation("NghiVangs");
                 });
 
             modelBuilder.Entity("HumanResourceManagement.Models.NhanVien", b =>
@@ -844,6 +933,8 @@ namespace HumanResourceManagement.Migrations
                     b.Navigation("Thues");
 
                     b.Navigation("ThuongNhanViens");
+
+                    b.Navigation("TraLuongs");
 
                     b.Navigation("TrinhDoHocVans");
                 });

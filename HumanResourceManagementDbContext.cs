@@ -16,6 +16,8 @@ namespace HumanResourceManagement
         public DbSet<PhongBan> PhongBans { get; set; }
         public DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
         public DbSet<Luong> Luongs { get; set; }
+        public DbSet<DotTraLuong> DotTraLuongs { get; set; }
+        public DbSet<TraLuong> TraLuongs { get; set; }
         public DbSet<PhuCapNhanVien> PhuCapNhanViens { get; set; }
         public DbSet<PhuCap> PhuCaps { get; set; }
         public DbSet<ThuongNhanVien> ThuongNhanViens { get; set; }
@@ -53,6 +55,12 @@ namespace HumanResourceManagement
             modelBuilder.Entity<Luong>()
                 .HasKey(l => l.MaLuong);
 
+            modelBuilder.Entity<DotTraLuong>()
+               .HasKey(dtl => dtl.MaDotTraLuong);
+
+            modelBuilder.Entity<TraLuong>()
+               .HasKey(tl => tl.MaTraLuong);
+
             modelBuilder.Entity<PhuCapNhanVien>()
                 .HasKey(pcnv => new { pcnv.NhanVienId, pcnv.PhuCapId });
 
@@ -85,12 +93,6 @@ namespace HumanResourceManagement
                 .HasOne(llnv => llnv.LichLam)
                 .WithMany(ll => ll.LichLamNhanViens)
                 .HasForeignKey(llnv => llnv.LichLamId);
-
-            // Liên kết bảng NghiVang với LichLam
-            modelBuilder.Entity<NghiVang>()
-                .HasOne(nv => nv.LichLam)
-                .WithMany(ll => ll.NghiVangs)
-                .HasForeignKey(nv => nv.LichLamId);
 
             // Liên kết bảng NghiVang với NhanVien
             modelBuilder.Entity<NghiVang>()
@@ -141,6 +143,18 @@ namespace HumanResourceManagement
                 .HasOne(nv => nv.NhanVien)
                 .WithMany(l => l.Luongs)
                 .HasForeignKey(nv => nv.NhanVienId);
+
+            // Liên kết bảng TraLuong với NhanVien
+            modelBuilder.Entity<TraLuong>()
+               .HasOne(tl => tl.NhanVien)
+               .WithMany(nv => nv.TraLuongs)
+               .HasForeignKey(tl => tl.NhanVienId);
+
+            // Liên kết bảng DotTraLuong với TraLuong
+            modelBuilder.Entity<TraLuong>()
+               .HasOne(tl => tl.DotTraLuong)
+               .WithMany(dtl => dtl.TraLuongs)
+               .HasForeignKey(tl => tl.DotTraLuongId);
 
             // Liên kết bảng PhuCapNhanVien với NhanVien
             modelBuilder.Entity<PhuCapNhanVien>()

@@ -29,8 +29,5 @@ namespace HumanResourceManagement.Models
 
         // Liên kết bảng Chấm công:
         public ICollection<ChamCong> ChamCongs { get; set; }
-
-        // Liên kết bảng Nghỉ vắng:
-        public ICollection<NghiVang> NghiVangs { get; set;}
     }
 }

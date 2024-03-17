@@ -25,7 +25,6 @@ namespace HumanResourceManagement.DTOs
         public string TrangThai { get; set; }
         [MaxLength(1000)]
         public string GhiChu { get; set; }
-        public string LichLamId { get; set; }
         public string NhanVienId { get; set; }
     }
 }

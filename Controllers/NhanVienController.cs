@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HumanResourceManagement.Pattern.SearchEmployeeStrategy;
+using HumanResourceManagement.Pattern.CreateId;
 
 namespace HumanResourceManagement.Controllers
 {
@@ -15,12 +16,14 @@ namespace HumanResourceManagement.Controllers
     public class NhanVienController : ControllerBase
     {
         private readonly HumanResourceManagementDbContext _dbContext;
-        private readonly SearchEmployeeStrategyFactory _strategyFactory;
+        private readonly SearchEmployeeStrategyFactory _searchEmployeeStrategyFactory;
+        private readonly CreateId<NhanVien> _createId;
 
-        public NhanVienController(HumanResourceManagementDbContext dbContext, SearchEmployeeStrategyFactory strategyFactory)
+        public NhanVienController(HumanResourceManagementDbContext dbContext, SearchEmployeeStrategyFactory searchEmployeeStrategyFactory)
         {
             _dbContext = dbContext;
-            _strategyFactory = strategyFactory;
+            _searchEmployeeStrategyFactory = searchEmployeeStrategyFactory;
+            _createId = new CreateId<NhanVien>(dbContext);
         }
 
         [HttpGet]
@@ -33,7 +36,7 @@ namespace HumanResourceManagement.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<NhanVien>> GetNhanVienById(string id)
         {
-            var searchStrategy = _strategyFactory.CreateStrategy("id");
+            var searchStrategy = _searchEmployeeStrategyFactory.CreateStrategy("id");
             var nhanViens = await searchStrategy.SearchAsync(id);
 
             if (nhanViens.Count == 0)
@@ -47,7 +50,7 @@ namespace HumanResourceManagement.Controllers
         [HttpGet("get-by-name")]
         public async Task<ActionResult<List<NhanVien>>> GetNhanVienByName(string name)
         {
-            var searchStrategy = _strategyFactory.CreateStrategy("name");
+            var searchStrategy = _searchEmployeeStrategyFactory.CreateStrategy("name");
             var nhanViens = await searchStrategy.SearchAsync(name);
 
             if (nhanViens.Count == 0)
@@ -61,7 +64,7 @@ namespace HumanResourceManagement.Controllers
         [HttpGet("get-by-phone")]
         public async Task<ActionResult<List<NhanVien>>> GetNhanVienByPhone(string phoneNumber)
         {
-            var searchStrategy = _strategyFactory.CreateStrategy("phone");
+            var searchStrategy = _searchEmployeeStrategyFactory.CreateStrategy("phone");
             var nhanViens = await searchStrategy.SearchAsync(phoneNumber);
 
             if (nhanViens.Count == 0)
@@ -82,7 +85,7 @@ namespace HumanResourceManagement.Controllers
                 
             var nhanVien = new NhanVien
             {
-                MaNhanVien = nhanVienDto.MaNhanVien,
+                MaNhanVien = await _createId.GetUniqueID("NV", 8, "MaNhanVien"),
                 HoTen = nhanVienDto.HoTen,
                 NgaySinh = nhanVienDto.NgaySinh,
                 GioiTinh = nhanVienDto.GioiTinh,
@@ -127,7 +130,6 @@ namespace HumanResourceManagement.Controllers
                 return NotFound();
             }
 
-            existingNhanVien.MaNhanVien = nhanVienDto.MaNhanVien;
             existingNhanVien.HoTen = nhanVienDto.HoTen;
             existingNhanVien.NgaySinh = nhanVienDto.NgaySinh;
             existingNhanVien.GioiTinh = nhanVienDto.GioiTinh;

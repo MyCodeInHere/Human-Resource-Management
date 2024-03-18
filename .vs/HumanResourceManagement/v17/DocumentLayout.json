@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Migrations\\20240317084314_InitDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20240317084314_InitDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\humanresourcemanagementdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:humanresourcemanagementdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\dtos\\chamcongdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:dtos\\chamcongdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\models\\dottraluong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:models\\dottraluong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\models\\traluong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:models\\traluong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|d:\\code\\code c#\\design pattern\\web human resource management\\humanresourcemanagement\\pattern\\createid\\createid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F572B251-93E7-4C0A-9623-62C066448E4D}|HumanResourceManagement.csproj|solutionrelative:pattern\\createid\\createid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +22,45 @@
       "DocumentGroups": [
         {
           "DockedHeight": 737,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240317084314_InitDb.cs",
-              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Migrations\\20240317084314_InitDb.cs",
-              "RelativeDocumentMoniker": "Migrations\\20240317084314_InitDb.cs",
-              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Migrations\\20240317084314_InitDb.cs",
-              "RelativeToolTip": "Migrations\\20240317084314_InitDb.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "ChamCongDTO.cs",
+              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\DTOs\\ChamCongDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\ChamCongDTO.cs",
+              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\DTOs\\ChamCongDTO.cs",
+              "RelativeToolTip": "DTOs\\ChamCongDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T08:43:14.356Z",
+              "WhenOpened": "2024-03-17T12:03:36.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NhanVienController.cs",
+              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Controllers\\NhanVienController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NhanVienController.cs",
+              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Controllers\\NhanVienController.cs",
+              "RelativeToolTip": "Controllers\\NhanVienController.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAswFQAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T11:58:36.984Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DotTraLuong.cs",
-              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\DotTraLuong.cs",
-              "RelativeDocumentMoniker": "Models\\DotTraLuong.cs",
-              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\DotTraLuong.cs",
-              "RelativeToolTip": "Models\\DotTraLuong.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABJAAAA",
+              "Title": "CreateId.cs",
+              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Pattern\\CreateId\\CreateId.cs",
+              "RelativeDocumentMoniker": "Pattern\\CreateId\\CreateId.cs",
+              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Pattern\\CreateId\\CreateId.cs",
+              "RelativeToolTip": "Pattern\\CreateId\\CreateId.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAowCoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T07:55:35.957Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HumanResourceManagementDbContext.cs",
-              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\HumanResourceManagementDbContext.cs",
-              "RelativeDocumentMoniker": "HumanResourceManagementDbContext.cs",
-              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\HumanResourceManagementDbContext.cs",
-              "RelativeToolTip": "HumanResourceManagementDbContext.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAgwJoAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T07:54:37.952Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TraLuong.cs",
-              "DocumentMoniker": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\TraLuong.cs",
-              "RelativeDocumentMoniker": "Models\\TraLuong.cs",
-              "ToolTip": "D:\\Code\\Code C#\\Design Pattern\\Web Human Resource Management\\HumanResourceManagement\\Models\\TraLuong.cs",
-              "RelativeToolTip": "Models\\TraLuong.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAzwBwAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T08:05:18.728Z",
+              "WhenOpened": "2024-03-17T11:09:03.724Z",
               "EditorCaption": ""
             }
           ]
